@@ -47,5 +47,27 @@ async function eliminarTortuguero(id) {
   await fetch(`${API_URL}/${id}`, { method: "DELETE" });
   cargarTortugueros();
 }
+let editId = null;
+
+function openEditModal(id, currentName) {
+  editId = id;
+  document.getElementById("editName").value = currentName;
+  const modal = new bootstrap.Modal(document.getElementById("editModal"));
+  modal.show();
+}
+
+document.getElementById("saveEdit").addEventListener("click", async () => {
+  const newName = document.getElementById("editName").value.trim();
+  if (!newName) return;
+
+  await fetch(`${API}/${editId}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ nombre: newName })
+  });
+
+  location.reload();
+});
+
 
 cargarTortugueros();

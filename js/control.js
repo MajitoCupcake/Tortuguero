@@ -157,6 +157,47 @@ async function renameTortugueroPrompt(tid) {
     renderControls();
   }
 }
+// Mostrar alertas bonitas con Bootstrap
+function showAlert(message, type = "info") {
+  const alertContainer = document.createElement("div");
+  alertContainer.innerHTML = `
+    <div class="alert alert-${type} alert-dismissible fade show position-fixed top-0 end-0 m-3" role="alert" style="z-index: 3000;">
+      ${message}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>`;
+  document.body.appendChild(alertContainer);
+
+  setTimeout(() => {
+    alertContainer.remove();
+  }, 3000);
+}
+
+// Pantalla de colores
+function flashScreen(colorClass) {
+  const flash = document.getElementById("flash");
+  flash.className = `flash ${colorClass}`;
+  flash.style.display = "block";
+  setTimeout(() => {
+    flash.style.display = "none";
+  }, 1000);
+}
+
+// Dispositivos con avisos y animaciones
+function prenderLuzUV() {
+  showAlert("💡 Luz UV encendida", "primary");
+  flashScreen("purple");
+}
+
+function prenderBomba() {
+  showAlert("💧 Bomba encendida", "success");
+  flashScreen("white");
+}
+
+function prenderFiltro() {
+  showAlert("🌊 Filtro encendido", "info");
+  flashScreen("blue");
+}
+
 
 // ============================
 // INIT
