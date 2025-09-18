@@ -1,0 +1,43 @@
+.bg-gradient-primary {
+  background: linear-gradient(90deg, #1e3c72, #2a5298);
+}
+
+
+/* Estilos base */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f7fa;
+  color: #333;
+}
+
+/* Tarjetas */
+.card {
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease-in-out;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Switches animados */
+.form-check-input {
+  width: 50px;
+  height: 25px;
+  cursor: pointer;
+}
+.form-check-input:checked {
+  background-color: #6a11cb;
+  border-color: #6a11cb;
+  box-shadow: 0 0 10px rgba(106,17,203,0.6);
+}
+
+/* Tablas bonitas */
+.table {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.table thead {
+  background: #2575fc;
+  color: white;
+}
